@@ -1,0 +1,4 @@
+anotações:
+wallet_direct_transfer : "dataType\":\"send" em fields
+cdc_payment_error: chave properties_primary_key, campo primary_key
+wallet_spend_money: chave properties_transaction_uuid, nao esta em fields
