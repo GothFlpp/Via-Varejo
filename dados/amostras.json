@@ -2,43 +2,43 @@ cdc_payment_complete
 
 {
     "Body":
-        "{
-            _id : cdc_payment_complete-banqi,
-            versao : 1.0.0,
-            unidade_negocio : banqi,
-            projeto : vvdatalab-ingestion-azure,
-            descricao : Data Ingestion from Banqi.,
-            timestamp : 2020-04-17T12:59:30.583Z,
-            origem :                {
-                    tipo: json,
-                    fonte: banqi,
-                    caminho: banqi,
-                    diretorio: cdc_payment_complete
+        {
+            "_id" : "cdc_payment_complete-banqi",
+            "versao" : "1.0.0",
+            "unidade_negocio" : "banqi",
+            "projeto" : "vvdatalab-ingestion-azure",
+            "descricao" : "Data Ingestion from Banqi.",
+            "timestamp" : "2020-04-17T12:59:30.583Z",
+            "origem" :                {
+                    "tipo": "json",
+                    "fonte": "banqi",
+                    "caminho": "banqi",
+                    "diretorio": "cdc_payment_complete"
                 },
-            destino:
+            "destino":
                 {
-                    tipo:json,
-                    caminho:/raw/banqi,
-                    diretorio:cdc_payment_complete,
-                    chave_tabela:properties_payment_uuid,
-                    modo_gravacao:append,
-                    quantidade:1,
-                    structType:
+                    "tipo":"json",
+                    "caminho":"/raw/banqi",
+                    "diretorio":"cdc_payment_complete",
+                    "chave_tabela":"properties_payment_uuid",
+                    "modo_gravacao":"append",
+                    "quantidade":1,
+                    "structType":
                         {
-                            fields:[
-                                {name:messageId,dataType:string,nullable:true,metadata:{}},
-                                {name:receivedAt,dataType:string,nullable:true,metadata:{}},
-                                {name:sentAt,dataType:string,nullable:true,metadata:{}},
-                                {name:timestamp,dataType:string,nullable:true,metadata:{}},
-                                {name:originalTimestamp,dataType:string,nullable:true,metadata:{}},
-                                {name:event,dataType:string,nullable:true,metadata:{}},
-                                {name:userId,dataType:string,nullable:true,metadata:{}},
-                                {name:properties_payment_uuid,dataType:string,nullable:true,metadata:{}},
-                                {name:properties_vendor,dataType:string,nullable:true,metadata:{}},
-                                {name:properties_account_uuid,dataType:string,nullable:true,metadata:{}},
-                                {name:properties_contract_code,dataType:string,nullable:true,metadata:{}},
-                                {name:properties_installment_number,dataType:integer,nullable:true,metadata:{}},
-                                {name:properties_principal_value,dataType:decimal,nullable:true,metadata:{}}
+                            "fields":[
+                                {"name":"messageId","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"receivedAt","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"sentAt","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"timestamp","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"originalTimestamp","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"event","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"userId","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_payment_uuid","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_vendor","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_account_uuid","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_contract_code","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_installment_number","dataType":"integer","nullable":true,"metadata":{}},
+                                {"name":"properties_principal_value","dataType":"decimal","nullable":true,"metadata":{}}
                                     ]
                         }},
                     conteudo:[
@@ -76,6 +76,259 @@ cdc_payment_complete
                 "systemProperties":{}
                 }
 
+
+
+cdc_payment_complete
+
+{
+    "Body":
+        {
+            "_id" : "cdc_payment_complete-banqi",
+            "versao" : "1.0.0",
+            "unidade_negocio" : "banqi",
+            "projeto" : "vvdatalab-ingestion-azure",
+            "descricao" : "Data Ingestion from Banqi.",
+            "timestamp" : "2020-04-17T12:59:30.583Z",
+            "origem" :                {
+                    "tipo": "json",
+                    "fonte": "banqi",
+                    "caminho": "banqi",
+                    "diretorio": "cdc_payment_complete"
+                },
+            "destino":
+                {
+                    "tipo":"json",
+                    "caminho":"/raw/banqi",
+                    "diretorio":"cdc_payment_complete",
+                    "chave_tabela":"properties_payment_uuid",
+                    "modo_gravacao":"append",
+                    "quantidade":1,
+                    "particao":
+                    [{
+                        "de":{"nome_coluna":"conteudo.receivedAt","tipo":"timestamp"},
+                        "para":{"year_partition":"yyyy","month_partition":"MM","day_partition":"dd"}
+                    }],
+                    "structType":
+                        {
+                            "fields":[
+                                {"name":"messageId","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"receivedAt","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"sentAt","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"timestamp","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"originalTimestamp","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"event","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"userId","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_payment_uuid","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_vendor","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_account_uuid","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_contract_code","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_installment_number","dataType":"integer","nullable":true,"metadata":{}},
+                                {"name":"properties_principal_value","dataType":"decimal","nullable":true,"metadata":{}}
+                                    ]
+                        }},
+                    conteudo:[
+                        {
+                            _metadata:{nodeVersion:10.15.3},
+                            channel:server,
+                            context:{library:{name:analytics-node,version:3.3.0}},
+                            event:cdc_payment_complete,
+                            integrations:{},
+                            messageId:node-0b0546b9beb87f27f8aeae98d560f35a-ac5a6928-c718-4135-8590-823e16b9ae8a,
+                            originalTimestamp:2020-04-17T12:58:51.540Z,
+                            projectId:kBWm9tedWr,
+                            receivedAt:2020-04-17T12:58:58.053Z,
+                            sentAt:2020-04-17T12:58:57.779Z,
+                            timestamp:2020-04-17T12:58:51.814Z,
+                            type:track,
+                            userId:FOX_3779031e41dd4190b4f8adbd262d9e74,
+                            version:2,
+                            writeKey:lw7PAIw3Oe2hxg3sR98Bhz5KR9QSZNbW,
+                            properties_account_uuid:3dce4f00-7e6c-11ea-b55b-e98a035c3a07,
+                            properties_contract_code:21118200661670,
+                            properties_installment_number:3,
+                            properties_payment_uuid:d80fa2c5-d2b3-4950-9658-e687b7702ce3,
+                            properties_principal_value:157.19,
+                            properties_vendor:viavarejo,
+                            properties_vv_authentication_code:0422X202004170000001170160038430
+                            }
+                            ],
+                    lote:cdc_payment_complete-banqi}",
+                "partition":"0",
+                "offset":"17183528536",
+                "sequenceNumber":37938,
+                "enqueuedTime":"2020-04-17T12:59:30.573Z",
+                "properties":{},
+                "systemProperties":{}
+                }
+
+
+
+cdc_payment_complete
+
+{
+    "Body":
+        {
+            "_id" : "cdc_payment_complete-banqi",
+            "versao" : "1.0.0",
+            "unidade_negocio" : "banqi",
+            "projeto" : "vvdatalab-ingestion-azure",
+            "descricao" : "Data Ingestion from Banqi.",
+            "timestamp" : "2020-04-17T12:59:30.583Z",
+            "origem" :                {
+                    "tipo": "json",
+                    "fonte": "banqi",
+                    "caminho": "banqi",
+                    "diretorio": "cdc_payment_complete"
+                },
+            "destino":
+                {
+                    "tipo":"json",
+                    "caminho":"/raw/banqi",
+                    "diretorio":"cdc_payment_complete",
+                    "chave_tabela":"properties_payment_uuid",
+                    "modo_gravacao":"append",
+                    "quantidade":1,
+                    "particao":
+                    [{
+                        "de":{"nome_coluna":"conteudo.receivedAt","tipo":"timestamp"},
+                        "para":{"year_partition":"yyyy","month_partition":"MM","day_partition":"dd"}
+                    }],
+                    "structType":
+                        {
+                            "fields":[
+                                {"name":"messageId","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"receivedAt","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"sentAt","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"timestamp","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"originalTimestamp","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"event","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"userId","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_payment_uuid","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_vendor","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_account_uuid","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_contract_code","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_installment_number","dataType":"integer","nullable":true,"metadata":{}},
+                                {"name":"properties_principal_value","dataType":"decimal","nullable":true,"metadata":{}}
+                                    ]
+                        }},
+                    conteudo:[
+                        {
+                            _metadata:{nodeVersion:10.15.3},
+                            channel:server,
+                            context:{library:{name:analytics-node,version:3.3.0}},
+                            event:cdc_payment_complete,
+                            integrations:{},
+                            messageId:node-0b0546b9beb87f27f8aeae98d560f35a-ac5a6928-c718-4135-8590-823e16b9ae8a,
+                            originalTimestamp:2020-04-17T12:58:51.540Z,
+                            projectId:kBWm9tedWr,
+                            receivedAt:2020-04-17T12:58:58.053Z,
+                            sentAt:2020-04-17T12:58:57.779Z,
+                            timestamp:2020-04-17T12:58:51.814Z,
+                            type:track,
+                            userId:FOX_3779031e41dd4190b4f8adbd262d9e74,
+                            version:2,
+                            writeKey:lw7PAIw3Oe2hxg3sR98Bhz5KR9QSZNbW,
+                            properties_account_uuid:3dce4f00-7e6c-11ea-b55b-e98a035c3a07,
+                            properties_contract_code:21118200661670,
+                            properties_installment_number:3,
+                            properties_payment_uuid:d80fa2c5-d2b3-4950-9658-e687b7702ce3,
+                            properties_principal_value:157.19,
+                            properties_vendor:viavarejo,
+                            properties_vv_authentication_code:0422X202004170000001170160038430
+                            }
+                            ],
+                    lote:cdc_payment_complete-banqi}",
+                "partition":"0",
+                "offset":"17183528536",
+                "sequenceNumber":37938,
+                "enqueuedTime":"2020-04-17T12:59:30.573Z",
+                "properties":{},
+                "systemProperties":{}
+                }
+
+                cdc_payment_complete
+
+cdc_payment_complete partition
+"{
+    "Body":
+        {
+            "_id" : "cdc_payment_complete-banqi",
+            "versao" : "1.0.0",
+            "unidade_negocio" : "banqi",
+            "projeto" : "vvdatalab-ingestion-azure",
+            "descricao" : "Data Ingestion from Banqi.",
+            "timestamp" : "2020-04-17T12:59:30.583Z",
+            "origem" :                {
+                    "tipo": "json",
+                    "fonte": "banqi",
+                    "caminho": "banqi",
+                    "diretorio": "cdc_payment_complete"
+                },
+            "destino":
+                {
+                    "tipo":"json",
+                    "caminho":"/raw/banqi",
+                    "diretorio":"cdc_payment_complete",
+                    "chave_tabela":"properties_payment_uuid",
+                    "modo_gravacao":"append",
+                    "quantidade":1,
+                    "particao":
+                    [{
+                        "de":{"nome_coluna":"conteudo.receivedAt","tipo":"timestamp"},
+                        "para":{"year_partition":"yyyy","month_partition":"MM","day_partition":"dd"}
+                    }],
+                    "structType":
+                        {
+                            "fields":[
+                                {"name":"messageId","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"receivedAt","dataType":"timestamp","nullable":true,"metadata":{}},
+                                {"name":"sentAt","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"timestamp","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"originalTimestamp","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"event","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"userId","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_payment_uuid","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_vendor","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_account_uuid","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_contract_code","dataType":"string","nullable":true,"metadata":{}},
+                                {"name":"properties_installment_number","dataType":"integer","nullable":true,"metadata":{}},
+                                {"name":"properties_principal_value","dataType":"decimal","nullable":true,"metadata":{}}
+                                    ]
+                        }},
+                    conteudo:[
+                        {
+                            _metadata:{nodeVersion:10.15.3},
+                            channel:server,
+                            context:{library:{name:analytics-node,version:3.3.0}},
+                            event:cdc_payment_complete,
+                            integrations:{},
+                            messageId:node-0b0546b9beb87f27f8aeae98d560f35a-ac5a6928-c718-4135-8590-823e16b9ae8a,
+                            originalTimestamp:2020-04-17T12:58:51.540Z,
+                            projectId:kBWm9tedWr,
+                            receivedAt:2020-04-17T12:58:58.053Z,
+                            sentAt:2020-04-17T12:58:57.779Z,
+                            timestamp:2020-04-17T12:58:51.814Z,
+                            type:track,
+                            userId:FOX_3779031e41dd4190b4f8adbd262d9e74,
+                            version:2,
+                            writeKey:lw7PAIw3Oe2hxg3sR98Bhz5KR9QSZNbW,
+                            properties_account_uuid:3dce4f00-7e6c-11ea-b55b-e98a035c3a07,
+                            properties_contract_code:21118200661670,
+                            properties_installment_number:3,
+                            properties_payment_uuid:d80fa2c5-d2b3-4950-9658-e687b7702ce3,
+                            properties_principal_value:157.19,
+                            properties_vendor:viavarejo,
+                            properties_vv_authentication_code:0422X202004170000001170160038430
+                            }
+                            ],
+                    lote:cdc_payment_complete-banqi}",
+                "partition":"0",
+                "offset":"17183528536",
+                "sequenceNumber":37938,
+                "enqueuedTime":"2020-04-17T12:59:30.573Z",
+                "properties":{},
+                "systemProperties":{}
+                }
 
 cdc_payment_error
 
