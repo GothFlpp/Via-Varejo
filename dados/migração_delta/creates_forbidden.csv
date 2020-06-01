@@ -1,0 +1,182 @@
+"CREATE EXTERNAL TABLE `raw_loja`.`inf_dvl_ped_cno`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_ipcno` DECIMAL(18,4), `cd_ipcno_seq` INT, `cd_icpcno` DECIMAL(18,4), `cd_idpcno_plo_atd` DECIMAL(18,4), `vr_idpcno_dvl` DECIMAL(18,4), `cd_idpcno_age` INT, `cd_idpcno_dvr_age` STRING, `cd_idpcno_bco` INT, `cd_idpcno_cta` DECIMAL(18,4), `cd_idpcno_dvr_cta` STRING, `cd_idpcno_tip_pgt` INT, `cd_idpcno_tip_etn` INT, `cd_idpcno_atz` STRING, `cd_idpcno_mqt` STRING, `cd_idpcno_nsu_atz` STRING, `cd_idpcno_num_ter` STRING, `cd_idpcno_ccd_msc` STRING, `ts_idpcno_icl` TIMESTAMP, `cd_idpcno_asu` DECIMAL(18,4), `ds_idpcno_cpm_asu` STRING, `cd_idpcno_cat` DECIMAL(18,4), `ds_idpcno_cpm_cat` STRING, `cd_idpcno_mot` DECIMAL(18,4), `ds_idpcno_cpm_mot` STRING, `st_idpcno_opr` STRING, `bandeira` STRING, `enttyp` STRING, `objeto` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/inf_dvl_ped_cno'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589463072',
+  'parquet.compression' = 'SNAPPY'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`etq_mcr_cnt_fil`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_empgcb` SMALLINT, `cd_fil` SMALLINT, `cd_mcr` INT, `qt_emcfil_cnt` INT, `qt_emcfil_inv_cnt` INT, `qt_emcfil_dsp` INT, `qt_emcfil_tsi_ent` INT, `qt_emcfil_tsi_sai` INT, `qt_emcfil_sdo` INT, `qt_emcfil_rsr_sdo` INT, `qt_emcfil_nov` INT, `qt_emcfil_suc` INT, `qt_emcfil_qbd` INT, `qt_emcfil_trc_for` INT, `qt_emcfil_mos` INT, `qt_emcfil_rsr_vnd` INT, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/etq_mcr_cnt_fil'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589371202',
+  'delta.autoOptimize.autoCompact' = 'true',
+  'parquet.compression' = 'SNAPPY',
+  'delta.autoOptimize.optimizeWrite' = 'true'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`cus_med_vnd_dia`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_empgcb` SMALLINT, `cd_fil` SMALLINT, `cd_tcmvnd` SMALLINT, `cd_mcr` INT, `vr_cmvdia` DECIMAL(11,2), `dt_cmvdia_ini_vig` DATE, `vr_cmvdia_sem_ipt` DECIMAL(11,2), `vr_cmvdia_icm` DECIMAL(11,2), `vr_cmvdia_icm_stt` DECIMAL(11,2), `vr_cmvdia_bon` DECIMAL(11,2), `cd_est_sig` STRING, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/cus_med_vnd_dia'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589429868',
+  'delta.autoOptimize.autoCompact' = 'true',
+  'parquet.compression' = 'SNAPPY',
+  'delta.autoOptimize.optimizeWrite' = 'true'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`ger_rga`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_gerrga` SMALLINT, `nm_gerrga` STRING, `cd_empgcb` SMALLINT, `cd_fun` INT, `cd_empgcb_fil` SMALLINT, `cd_fil` SMALLINT, `cd_tipdep` SMALLINT, `st_gerrga_ina` STRING, `dt_gerrga_ina` DATE, `ds_gerrga_apa` STRING, `cd_gerrga_ddd_cel` STRING, `cd_gerrga_cel` STRING, `st_gerrga_pam_mtg` SMALLINT, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/ger_rga'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589312050',
+  'delta.autoOptimize.autoCompact' = 'true',
+  'parquet.compression' = 'SNAPPY',
+  'delta.autoOptimize.optimizeWrite' = 'true'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`htr_cus_med_vnd`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_empgcb` INT, `cd_fil` INT, `cd_tcmvnd` INT, `cd_mcr` INT, `dt_hcmvnd_ini_vig` DATE, `vr_cmvdia` DECIMAL(11,2), `vr_cmvdia_sem_ipt` DECIMAL(11,2), `vr_cmvdia_icm` DECIMAL(11,2), `vr_cmvdia_icm_stt` DECIMAL(11,2), `vr_cmvdia_bon` DECIMAL(11,2), `cd_est_sig` STRING, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING, `hour_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/htr_cus_med_vnd'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589429949',
+  'parquet.compression' = 'SNAPPY'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`set_mcr_agp`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_tasmcr` SMALLINT, `cd_smagp` SMALLINT, `ds_smagp` STRING, `cd_smagp_ord` SMALLINT, `st_smagp_loj_vrt` STRING, `st_smagp_cvt` STRING, `st_smagp_vsb` STRING, `ds_smagp_img` STRING, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/set_mcr_agp'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589318438',
+  'delta.autoOptimize.autoCompact' = 'true',
+  'parquet.compression' = 'SNAPPY',
+  'delta.autoOptimize.optimizeWrite' = 'true'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`agp_mcr_anc_mcr`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_amanc` INT, `cd_mcr` INT, `ds_amamcr` STRING, `qt_amamcr` SMALLINT, `st_amamcr_etg_dpo` STRING, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/agp_mcr_anc_mcr'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589313150',
+  'delta.autoOptimize.autoCompact' = 'true',
+  'parquet.compression' = 'SNAPPY',
+  'delta.autoOptimize.optimizeWrite' = 'true'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`tip_mcr`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_tipmcr` SMALLINT, `ds_tipmcr_dsr` STRING, `ds_tipmcr_dsr_red` STRING, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/tip_mcr'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589319207',
+  'delta.autoOptimize.autoCompact' = 'true',
+  'parquet.compression' = 'SNAPPY',
+  'delta.autoOptimize.optimizeWrite' = 'true'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`pgc_etg_pab_mcr`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_empgcb` SMALLINT, `cd_fil` SMALLINT, `cd_tafil` STRING, `cd_pabmcr` INT, `cd_pepmcr` SMALLINT, `qt_pepmcr` SMALLINT, `st_pepmcr` STRING, `qt_pepmcr_cbg_tot` DECIMAL(7,4), `st_pepmcr_can` STRING, `dt_pepmcr_ven_rsr` DATE, `cd_empgcb_cfm` SMALLINT, `cd_fun_cfm` INT, `aa_ntabm_emi` SMALLINT, `mm_ntabm_emi` SMALLINT, `cd_ntabm_ser` STRING, `cd_ntabm` INT, `dt_cpatv` DATE, `cd_cpatv` SMALLINT, `cd_mcr` INT, `st_pepmcr_sit_mcr` STRING, `st_pepmcr_eta_pab` STRING, `st_pepmcr_rcb` STRING, `cd_pmoemp` INT, `cd_empgcb_dst` SMALLINT, `cd_fil_dst` SMALLINT, `cd_hpavnd_ori` INT, `cd_caoemp` SMALLINT, `dt_hpavnd` DATE, `qt_pepmcr_med_vnd` DECIMAL(5,2), `qt_pepmcr_dia_pjc` SMALLINT, `cd_cplot` INT, `cd_pepmcr_sis_ori` STRING, `st_pepmcr_otm` STRING, `cd_empgcb_pxm` SMALLINT, `cd_fil_pxm` SMALLINT, `cd_tafil_pxm` STRING, `cd_pepmcr_ori` INT, `cd_pepmcr_dsm_ori` SMALLINT, `cd_pepmcr_pdd` SMALLINT, `cd_pepmcr_ace_bos` INT, `cd_pepmcr_ord` STRING, `dt_pepmcr_etg` DATE, `st_pepmcr_rtf` STRING, `st_pepmcr_sdo_epl` STRING, `qt_pepmcr_alc_cga` SMALLINT, `cd_pepmcr_ord_cga` SMALLINT, `qt_pepmcr_tnt_etg` SMALLINT, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/pgc_etg_pab_mcr'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589463249',
+  'delta.autoOptimize.autoCompact' = 'true',
+  'parquet.compression' = 'SNAPPY',
+  'delta.autoOptimize.optimizeWrite' = 'true'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`ipt_itm_nfs_vnd`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_empgcb_emi` INT, `cd_fil_emi` INT, `aa_nvmcr_emi` INT, `mm_nvmcr_emi` INT, `cd_nvmcr_ser` STRING, `cd_nvmcr` INT, `cd_invmcr` INT, `cd_tipipt` INT, `vr_iinvnd_bas` DECIMAL(13,2), `tx_iinvnd` DECIMAL(5,2), `vr_iinvnd` DECIMAL(13,2), `tx_iinvnd_red` DECIMAL(5,2), `tx_iinvnd_mva` DECIMAL(5,2), `vr_iinvnd_bas_stt` DECIMAL(13,2), `tx_iinvnd_stt` DECIMAL(5,2), `vr_iinvnd_stt` DECIMAL(13,2), `vr_iinvnd_opr` DECIMAL(13,2), `cd_trdfis_ide` INT, `cd_stipt_ide` INT, `cd_stipt` INT, `vr_iinvnd_bas_dst` DECIMAL(13,2), `tx_iinvnd_icm_dst` DECIMAL(5,2), `tx_iinvnd_icm_fcp` DECIMAL(5,2), `tx_iinvnd_int_pti` DECIMAL(5,2), `tx_iinvnd_par` DECIMAL(5,2), `vr_iinvnd_icm_fcp` DECIMAL(13,2), `vr_iinvnd_icm_dst` DECIMAL(13,2), `vr_iinvnd_icm_rme` DECIMAL(13,2), `vr_iinvnd_bas_rme` DECIMAL(13,2), `tx_iinvnd_icm_pdo` DECIMAL(5,2), `vr_iinvnd_icm_pdo` DECIMAL(13,2), `tx_iinvnd_stt_pdo` DECIMAL(5,2), `vr_iinvnd_stt_pdo` DECIMAL(13,2), `tx_iinvnd_stt_fcp` DECIMAL(5,2), `vr_iinvnd_stt_fcp` DECIMAL(13,2), `tx_iinvnd_icm_pdo_fcp` DECIMAL(5,2), `vr_iinvnd_icm_pdo_fcp` DECIMAL(13,2), `vr_iinvnd_bas_stt_fcp` DECIMAL(13,2), `vr_iinvnd_icm_dsn` DECIMAL(13,2), `cd_iinvnd_mot_dsn` INT, `vr_iinvnd_opr_dfr` DECIMAL(13,2), `vr_iinvnd_icm_dfr` DECIMAL(13,2), `tx_iinvnd_icm_dfr` DECIMAL(5,2), `cd_iinvnd_ide_rgr_cal` DECIMAL(17,0), `tx_iinvnd_icm_ret` DECIMAL(5,2), `vr_iinvnd_icm_sbd` DECIMAL(13,2), `vr_iinvnd_icm_stt_ret` DECIMAL(13,2), `vr_iinvnd_bas_stt_ret` DECIMAL(13,2), `vr_iinvnd_bas_fcp_ret` DECIMAL(13,2), `tx_iinvnd_fcp_ret` DECIMAL(5,2), `vr_iinvnd_fcp_stt_ret` DECIMAL(13,2), `tx_iinvnd_rdc_bas_eft` DECIMAL(5,2), `vr_iinvnd_bas_eft` DECIMAL(13,2), `tx_iinvnd_icm_eft` DECIMAL(13,2), `vr_iinvnd_icm_eft` DECIMAL(13,2), `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/ipt_itm_nfs_vnd'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589465341',
+  'parquet.compression' = 'SNAPPY'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`ipt_itm_nfe_ret`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_empgcb_emi` INT, `cd_fil_emi` INT, `aa_nretg_emi` INT, `mm_nretg_emi` INT, `cd_nretg_ser` STRING, `cd_nretg` INT, `cd_inretg` INT, `cd_tipipt` INT, `vr_iinret_bas` DECIMAL(13,2), `tx_iinret` DECIMAL(5,2), `vr_iinret` DECIMAL(13,2), `tx_iinret_red` DECIMAL(5,2), `tx_iinret_mva` DECIMAL(5,2), `vr_iinret_bas_stt` DECIMAL(13,2), `tx_iinret_stt` DECIMAL(5,2), `vr_iinret_stt` DECIMAL(13,2), `vr_iinret_opr` DECIMAL(13,2), `cd_trdfis_ide` INT, `cd_stipt_ide` INT, `cd_stipt` INT, `vr_iinret_bas_dst` DECIMAL(13,2), `tx_iinret_icm_dst` DECIMAL(5,2), `vr_iinret_icm_dst` DECIMAL(13,2), `tx_iinret_int_pti` DECIMAL(5,2), `tx_iinret_par` DECIMAL(5,2), `vr_iinret_icm_rme` DECIMAL(13,2), `tx_iinret_icm_fcp` DECIMAL(5,2), `vr_iinret_icm_fcp` DECIMAL(13,2), `vr_iinret_bas_rme` DECIMAL(13,2), `tx_iinret_icm_pdo` DECIMAL(5,2), `tx_iinret_icm_pdo_fcp` DECIMAL(5,2), `tx_iinret_stt_fcp` DECIMAL(5,2), `tx_iinret_stt_pdo` DECIMAL(5,2), `vr_iinret_bas_stt_fcp` DECIMAL(13,2), `vr_iinret_icm_pdo` DECIMAL(13,2), `vr_iinret_icm_pdo_fcp` DECIMAL(13,2), `vr_iinret_stt_fcp` DECIMAL(13,2), `vr_iinret_stt_pdo` DECIMAL(13,2), `vr_iinret_icm_dsn` DECIMAL(13,2), `cd_iinret_mot_dsn` INT, `vr_iinret_opr_dfr` DECIMAL(13,2), `vr_iinret_icm_dfr` DECIMAL(13,2), `tx_iinret_icm_dfr` DECIMAL(5,2), `cd_iinret_ide_rgr_cal` DECIMAL(17,0), `tx_iinret_icm_ret` DECIMAL(5,2), `vr_iinret_icm_sbd` DECIMAL(13,2), `vr_iinret_icm_stt_ret` DECIMAL(13,2), `vr_iinret_bas_stt_ret` DECIMAL(13,2), `vr_iinret_bas_fcp_ret` DECIMAL(13,2), `tx_iinret_fcp_ret` DECIMAL(5,2), `vr_iinret_fcp_stt_ret` DECIMAL(13,2), `tx_iinret_rdc_bas_eft` DECIMAL(5,2), `vr_iinret_bas_eft` DECIMAL(13,2), `tx_iinret_icm_eft` DECIMAL(5,2), `vr_iinret_icm_eft` DECIMAL(13,2), `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/ipt_itm_nfe_ret'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589465562',
+  'parquet.compression' = 'SNAPPY'
+)"
+"CREATE EXTERNAL TABLE `raw_loja`.`itm_nfe_ret_etg`(`header_id` STRING, `header_versao` STRING, `header_unidade_negocio` STRING, `header_projeto` STRING, `header_descricao` STRING, `header_timestamp` STRING, `header_origem` STRUCT<`tipo`: STRING, `fonte`: STRING, `caminho`: STRING, `diretorio`: STRING>, `header_destino` STRUCT<`tipo`: STRING, `caminho`: STRING, `diretorio`: STRING, `chave_tabela`: STRING, `modo_gravacao`: STRING, `particao`: ARRAY<STRUCT<`de`: STRUCT<`nome_coluna`: STRING, `tipo`: STRING>, `para`: STRING>>, `structType`: STRING, `quantidade`: INT>, `header_lote` STRING, `aud_enttyp` STRING, `aud_apply_timestamp` TIMESTAMP, `cd_empgcb_emi` INT, `cd_fil_emi` INT, `aa_nretg_emi` INT, `mm_nretg_emi` INT, `cd_nretg_ser` STRING, `cd_nretg` INT, `cd_inretg` INT, `cd_mcr` INT, `qt_inretg_mcr` INT, `vr_inretg_unt` DECIMAL(11,2), `vr_inretg_des` DECIMAL(13,2), `vr_inretg_liq` DECIMAL(13,2), `ds_inretg_mcr` STRING, `cd_inretg_tbt` STRING, `cd_inretg_und_mcr` STRING, `cd_inretg_ori` STRING, `cd_inretg_clf_fis` INT, `tx_inretg_icm` DECIMAL(5,2), `tx_inretg_ipi` DECIMAL(5,2), `vr_inretg_ipi` DECIMAL(11,2), `cd_tbticm` INT, `vr_inretg_bas_icm` DECIMAL(13,2), `tx_inretg_red_icm` DECIMAL(5,2), `vr_inretg_icm` DECIMAL(13,2), `vr_inretg_frt` DECIMAL(9,2), `cd_cmncm_red` INT, `cd_gmncm` INT, `vr_inretg_ecg_fnc` DECIMAL(9,2), `tx_inretg_mva` DECIMAL(5,2), `vr_inretg_bas_stt` DECIMAL(13,2), `vr_inretg_icm_stt` DECIMAL(13,2), `tx_inretg_icm_stt` DECIMAL(5,2), `vr_inretg_dps_acs` DECIMAL(9,2), `cd_inretg_cst_fis` INT, `cd_cmcit_ide` INT, `cd_cof_dst` STRING, `cd_cof` INT, `cd_inretg_pce_avr` INT, `cd_cop_ntz_opr` INT, `cd_cop_dvr` INT, `qt_inretg_erv` INT, `cd_bnffis` STRING, `enttyp` STRING, `objeto` STRING, `bandeira` STRING)
+PARTITIONED BY (`bandeira_partition` STRING, `year_partition` STRING, `month_partition` STRING, `day_partition` STRING)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+WITH SERDEPROPERTIES (
+  'serialization.format' = '1'
+)
+STORED AS
+  INPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION 'dbfs:/mnt/gen2/raw/loja/itm_nfe_ret_etg'
+TBLPROPERTIES (
+  'transient_lastDdlTime' = '1589465560',
+  'parquet.compression' = 'SNAPPY'
+)"

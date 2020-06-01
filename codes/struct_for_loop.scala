@@ -26,7 +26,18 @@ val stocksSchema = StructType(Array(
     StructField("value", StringType)
   ))
 
-var df = spark.read.format("csv").schema(stocksSchema).load("/home/flpp/Downloads/via_teste/struct/struct.csv")
+
+case class stocks (
+  company : String,
+  date : Int,
+  value : Double
+)
+
+import spark.implicits._
+
+val df2 = df.as[stocks]
+
+var df = spark.read.format("csv").schema(NewstocksSchema).load("/home/flpp/Downloads/via_teste/struct/struct.csv")
 df.printSchema()
 
 for (row <- NewstocksSchema.fields){
