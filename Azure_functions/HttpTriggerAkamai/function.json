@@ -7,14 +7,15 @@
       "direction": "in",
       "name": "req",
       "methods": [
-        "get",
         "post"
       ]
     },
     {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
+      "type": "eventHub",
+      "name": "$return",
+      "eventHubName": "testequery",
+      "connection": "Endpoint=sb://dlprdevhwifiengagement.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=lEti7Hss6gMEIWSppJS4+bfp7FX/i9YfHD2ft1zQLy0=;EntityPath=testequery",
+      "direction": "out"
+  }
   ]
 }
