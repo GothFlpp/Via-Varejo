@@ -1,0 +1,8 @@
+name space dlprdevhwifiengagement
+eventhub testequery
+primary Key : lEti7Hss6gMEIWSppJS4+bfp7FX/i9YfHD2ft1zQLy0=
+connection string : Endpoint=sb://dlprdevhwifiengagement.servicebus.windows.net/;SharedAccessKeyName=Sender;SharedAccessKey=lEti7Hss6gMEIWSppJS4+bfp7FX/i9YfHD2ft1zQLy0=;EntityPath=testequery
+
+
+    
+https://portal.azure.com/#@viavarejo.onmicrosoft.com/resource/subscriptions/f4e6253c-c926-4223-99db-d6c0e6790a86/resourceGroups/rg-prd-cc-ed-ingest/providers/Microsoft.EventHub/namespaces/dlprdevhwifiengagement/eventhubs/testequery/overview
