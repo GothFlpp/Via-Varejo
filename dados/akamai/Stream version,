@@ -1,0 +1,280 @@
+Stream version,
+Client IP ,
+Request Host ,
+Response Content Type ,
+Cookie ,
+Referer ,
+Warning ,
+country ,
+region ,
+city ,
+latitude ,
+longitude ,
+Protocol Type ,
+Protocol Version ,
+HTTP Status Code ,
+Request Port ,
+Request Method ,
+Request Path ,
+Response Content Length ,
+Bytes ,
+User-Agent ,
+Forward Hostname ,
+Query string ,
+Http version ,
+Request Time ,
+Accept-Encoding ,
+Accept-Language ,
+Authorization ,
+Request Cache-Control ,
+Request Connection ,
+Request Content-MD5 ,
+DNT ,
+Expect ,
+If-Match ,
+If-Modified-Since ,
+If-None-Match ,
+If-Range ,
+If-Unmodified-Since ,
+Range ,
+TE ,
+Upgrade ,
+Request Via ,
+X-Forwarded-For ,
+X-Requested-With ,
+Download Time ,
+Last Byte ,
+Asnum ,
+Edge IP ,
+Error Code R14 ,
+Error Code F29 ,
+Client RTT ,
+Mid Mile Latency ,
+Net Origin Latency ,
+Download Status ,
+Accept-Ranges ,
+Access-Control-Allow-Origin ,
+Age ,
+Allow ,
+Content-Encoding ,
+Content-Language ,
+Content-Disposition ,
+Content-Range ,
+Date ,
+ETag ,
+Expires ,
+Last-Modified ,
+Link ,
+P3P ,
+Retry-After ,
+Server ,
+Trailer ,
+Transfer-Encoding ,
+Vary ,
+WWW-Authenticate ,
+X-Powered-By ,
+Set-Cookie ,
+Response Cache-Control ,
+Response Connection ,
+Response Content-MD5 ,
+Response Via ,
+area ,
+zip ,
+Network ,
+Network Type ,
+Throughput ,
+Bandwidth ,
+Proxy ,
+Cache hit ,
+Cacheable ,
+Cache stats ,
+Cache hierarchy ,
+Cache status ,
+Waf version ,
+Policy id ,
+Risk groups ,
+Risk tuples ,
+Risk scores ,
+p action ,
+p rate ,
+Warn rules ,
+Warn slrs ,
+Warn data ,
+Warn tags ,
+Deny rules ,
+Deny data ,
+Warn msg ,
+Deny msg ,
+Deny slrs ,
+Warn actions ,
+Deny actions ,
+Anom scr
+
+
+
+{
+    "id": "akamai-fraude",
+    "versao": "1.0.0",
+    "unidade_negocio": "akamai",
+    "projeto": "vvdatalab-ingestion-azure",
+    "descricao": "Ingestao dos dados (Akamai)",
+    "timestamp": "",
+    "origem": {
+        "tipo": "json",
+        "fonte": "akamai",
+        "caminho": "akamai",
+        "diretorio": "akamai"
+    },
+    "destino": {
+        "tipo": "json",
+        "caminho": "/raw/akamai",
+        "diretorio": "akamai",
+        "chave_tabela": "",
+        "modo_gravacao": "append",
+        "particao": [
+            {
+                "de": {
+                    "nome_coluna": "conteudo.data",
+                    "tipo": "date"
+                },
+                "para": {
+                    "year_partition": "yyyy",
+                    "month_partition": "MM",
+                    "day_partition": "dd"
+                }
+            }
+        ],
+        "structType": {
+            "fields": [
+                {
+                    "name": "apFloors-0",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "apMac",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "apTags-0",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "apTags-1",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "apTags-2",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "clientMac",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "data",
+                    "dataType": "date",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "ipv4",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "ipv6",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "lat",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "lng",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "manufacturer",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "os",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "rssi",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "seenEpoch",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "seenTime",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "ssid",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "unc",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "x",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "y",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                }
+            ]
+        },
+        "quantidade": 1
+    },
+    "conteudo": "",
+    "lote": "akamai-fraude",
+    "_rid": "nbc8AL73DLgEAAAAAAAAAA==",
+    "_self": "dbs/nbc8AA==/colls/nbc8AL73DLg=/docs/nbc8AL73DLgEAAAAAAAAAA==/",
+    "_etag": "\"5c009fe2-0000-0200-0000-5ed81d2c0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1591221548
+}

@@ -1,0 +1,136 @@
+{
+    "id": "akamai-fraude",
+    "versao": "1.0.0",
+    "unidade_negocio": "akamai",
+    "projeto": "vvdatalab-ingestion-azure",
+    "descricao": "Ingestao dos dados (Akamai)",
+    "timestamp": "",
+    "origem": {
+        "tipo": "json",
+        "fonte": "akamai",
+        "caminho": "akamai",
+        "diretorio": "akamai"
+    },
+    "destino": {
+        "tipo": "json",
+        "caminho": "/raw/akamai",
+        "diretorio": "akamai",
+        "chave_tabela": "",
+        "modo_gravacao": "append",
+        "particao": [
+            {
+                "de": {
+                    "nome_coluna": "conteudo.data",
+                    "tipo": "date"
+                },
+                "para": {
+                    "year_partition": "yyyy",
+                    "month_partition": "MM",
+                    "day_partition": "dd"
+                }
+            }
+        ],
+        "structType": {
+            "fields": [
+                {
+                    "name": "cp",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "start",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "processedTime",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "type",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "id",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "geo",
+                    "dataType": "city : string, country : string, lat : string, region : string, area : string, zip : string, long : string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "reqid",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "guid",
+                    "dataType": "string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "message",
+                    "dataType": "bytes : string, cliIP : string, fwdHost : string, proto : string, protoVer : string, reqHost : string, reqMethod : string, reqPath: string, reqPort : string, respCT : string, respLen : string, status : string, queryStr : string, UA : string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "netPerf",
+                    "dataType": "netOriginLatency : string, downloadStatus : string, clientRTT : string, midMileLatency : string, asnum : string, downloadTime : string, edgeIP : string, lastByte : string, errCdR14 : string, errCdF29 : string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "cache",
+                    "dataType": "cacheHit : string, cacheable : string, cacheStatus : string, cacheStats : string, cacheH : string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "waf",
+                    "dataType": "riskScores : string, pRate : string, warnActions : string, ver : string, warnSlrs : string, warnRules : string, pAction : string, riskGroups : string, warnData : string, denyActions : string, denySlrs : string, anomScr : string, warnTags : string, denyMsg : string, riskTuples : string, warnMsg : string, policy : string, denyRules : string, denyData : string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "network",
+                    "dataType": "nw: string, nwType : string, throughput : string, proxy : string, bw : string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "reqHdr",
+                    "dataType": "cookie : string, reqTime : string, accEnc : string, accLang : string, auth : string, reqCacheCtl : string, reqConn : string, reqContMD5 : string, DNT : string, expect : string, ifMatch : string, ifMod : string, ifNone : string, ifRange : string, ifUnmod: string, range : string, referer : string, te : string, upgrade : string, reqVia : string, xFrwdFor : string, xReqWith : string",
+                    "nullable": true,
+                    "metadata": {}
+                },
+                {
+                    "name": "respHdr",
+                    "dataType": "accRange : string, respCacheCtl : string, respConn : string, respContMD5 : string, respVia: string, allowOrigin : string, age : string, allow: string, contEnc : string, contLang : string, contDisp : string, contRange : string, expires : string, link : string , p3p : string, retry : string, trailer : string, transEnc : string, vary : string, warning : string, wwwAuth : string, setCookie : string, date : string, eTag : string, lastMod : string, server : string, xPwrdBy : string",
+                    "nullable": true,
+                    "metadata": {}
+                }
+            ]
+        },
+        "quantidade": 1
+    },
+    "conteudo": "",
+    "lote": "akamai-fraude",
+    "_rid": "nbc8AL73DLgFAAAAAAAAAA==",
+    "_self": "dbs/nbc8AA==/colls/nbc8AL73DLg=/docs/nbc8AL73DLgFAAAAAAAAAA==/",
+    "_etag": "\"3f0051ea-0000-0200-0000-5eebd1af0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1592512943
+}
