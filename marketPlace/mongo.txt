@@ -1,0 +1,10 @@
+mongo
+name: MP-INDICADOR homlog
+Type: Direct Connection
+Adress: mdbh-mktp-5.dc.nova
+Porta: 27017
+​[15:53] CASSIO TOMAS ALVES DOS SANTOS
+    Authentication:
+Database: Admin
+User: svc_mktplace
+Password: S0kxdad1dv0
