@@ -1,1 +1,6 @@
 token cluster datalab dapi929f1484e6b0833d645655624011a750
+
+
+databricks configure --token https://adb-4246113271600238.18.azuredatabricks.net
+
+databricks secrets create-scope --scope "dlprddatalake" --initial-manage-principal "users"
