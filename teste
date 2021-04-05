@@ -1,0 +1,15 @@
+#Criando icone executavel
+
+sudo vim ~/.local/share/applications/WhatsApp.desktop
+
+#Colar comando
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=WhatsApp
+Comment=Aplicativo WhatsApp Web via Nativier
+Icon=/home/dark/WhatsApp-linux-x64/resources/app/icon.png
+Exec=/home/dark/WhatsApp-linux-x64/WhatsApp
+Terminal=false
+StartupNotify=false
+Categories=Network; A categoria que o aplicativo deve aparecer no menu
