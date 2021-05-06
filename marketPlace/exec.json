@@ -1,0 +1,192 @@
+{
+    "name": "exec_mktplace",
+    "properties": {
+        "activities": [
+            {
+                "name": "Execute app_mktplace_venda",
+                "description": "Executa pipeline app_mktplace_venda",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "app_mktplace_venda",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true,
+                    "parameters": {
+                        "data_proc": {
+                            "value": "@formatDateTime(adddays(pipeline().TriggerTime, -1), 'yyyy-MM-dd HH:mm:ss')",
+                            "type": "Expression"
+                        },
+                        "mode": {
+                            "value": "merge",
+                            "type": "Expression"
+                        },
+                        "data_proc_init": {
+                            "value": "30",
+                            "type": "Expression"
+                        },
+                        "origins": {
+                            "value": "context_site.unidadenegocio,context_site.freteentregatipo,context_site.compraentregastatus,context_site.lojista,context_site.categoria",
+                            "type": "Expression"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Execute app_mktplace_site_lojista",
+                "description": "Executa pipeline app_mktplace_site_lojista",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "app_mktplace_site_lojista",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true
+                }
+            },
+            {
+                "name": "Execute app_mktplace_estoque",
+                "description": "Executa pipeline app_mktplace_estoque",
+                "type": "ExecutePipeline",
+                "dependsOn": [
+                    {
+                        "activity": "Execute app_mktplace_venda",
+                        "dependencyConditions": [
+                            "Succeeded"
+                        ]
+                    }
+                ],
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "app_mktplace_estoque",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true,
+                    "parameters": {
+                        "data_proc": {
+                            "value": "@formatDateTime(adddays(pipeline().TriggerTime, -1), 'yyyy-MM-dd HH:mm:ss')",
+                            "type": "Expression"
+                        },
+                        "mode": {
+                            "value": "drop",
+                            "type": "Expression"
+                        },
+                        "data_proc_init": {
+                            "value": "30",
+                            "type": "Expression"
+                        },
+                        "origins": "context_marketplace.ecad_sku,context_marketplace.ecad_product,context_marketplace.ecma_sku_mp_related_sku_seller,context_marketplace.ecad_nonmarket_structure,context_marketplace.ecia_category_tree_vw,context_marketplace.ecad_warehouse,context_marketplace.ecad_price,context_marketplace.ecad_price,context_marketplace.ecad_product_uda,context_marketplace.ecad_current_stock,context_marketplace.ecad_sku_bar_code,context_marketplace.ecma_sku_store_status"
+                    }
+                }
+            },
+            {
+                "name": "Execute app_mktplace_protocolo",
+                "description": "Executa pipeline app_mktplace_protocolo",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "app_mktplace_protocolo",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true,
+                    "parameters": {
+                        "data_proc": {
+                            "value": "@formatDateTime(adddays(pipeline().TriggerTime, -1), 'yyyy-MM-dd HH:mm:ss')",
+                            "type": "Expression"
+                        },
+                        "mode": {
+                            "value": "merge",
+                            "type": "Expression"
+                        },
+                        "data_proc_init": {
+                            "value": "30",
+                            "type": "Expression"
+                        },
+                        "origins": "app_atendimento.tb_core_incidents,context_atendimento.entrega,context_atendimento.incidents,context_atendimento.lojista,context_atendimento.pedido,context_atendimento.queue,context_atendimento.log_solucoes,context_atendimento.service_categories,context_atendimento.service_products,context_atendimento.co_tipo,context_atendimento.solucx_nps"
+                    }
+                }
+            },
+            {
+                "name": "Execute mktplace_save_dimp",
+                "description": "Executa pipeline mktplace_save_dimp",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "mktplace_save_dimp",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true,
+                    "parameters": {
+                        "data_proc": {
+                            "value": "@formatDateTime(adddays(pipeline().TriggerTime, -1), 'yyyy-MM-dd HH:mm:ss')",
+                            "type": "Expression"
+                        },
+                        "data_proc_init": {
+                            "value": "@formatDateTime(adddays(pipeline().TriggerTime, -1), 'yyyy-MM-dd HH:mm:ss')",
+                            "type": "Expression"
+                        },
+                        "mode": {
+                            "value": "merge",
+                            "type": "Expression"
+                        },
+                        "tables": {
+                            "value": "cancelamento_pagamento,cliente,endereco,meio_captura,municipio_ibge,nota_fiscal,pagamento,pagamento_tipo,pessoa,seller,venda,intermediador_servico",
+                            "type": "Expression"
+                        },
+                        "origins": {
+                            "value": "context_marketplace.ecad_seller_proposal,context_proxy.adquirente,context_proxy.pagamentopedido,context_proxy.pedido,context_site.cliente,context_site.clienteendereco,context_site.compracliente,context_site.compraentregaestorno,context_site.compraentregatdca,context_site.compraformapagamento,context_site.compraresultadopagamento,context_site.formapagamento,context_site.lojista,context_proxy.adquirente",
+                            "type": "Expression"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Execute app_mktplace_forma_pagamento",
+                "description": "Executa pipeline app_mktplace_forma_pagamento",
+                "type": "ExecutePipeline",
+                "dependsOn": [],
+                "userProperties": [],
+                "typeProperties": {
+                    "pipeline": {
+                        "referenceName": "app_mktplace_forma_pagamento",
+                        "type": "PipelineReference"
+                    },
+                    "waitOnCompletion": true,
+                    "parameters": {
+                        "data_proc": {
+                            "value": "@formatDateTime(adddays(pipeline().TriggerTime, -1), 'yyyy-MM-dd HH:mm:ss')",
+                            "type": "Expression"
+                        },
+                        "mode": {
+                            "value": "merge",
+                            "type": "Expression"
+                        },
+                        "data_proc_init": {
+                            "value": "30",
+                            "type": "Expression"
+                        },
+                        "origins": {
+                            "value": "context_site.unidadenegocio,context_site.freteentregatipo,context_site.compraentregastatus,context_site.lojista, context_site.compraresultadopagamento, context_site.compraformapagamento,context_proxy.pagamentopedido, context_proxy.adquirente",
+                            "type": "Expression"
+                        }
+                    }
+                }
+            }
+        ],
+        "folder": {
+            "name": "APP MarketPlace"
+        },
+        "annotations": [],
+        "lastPublishTime": "2021-04-12T19:10:39Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,95 @@
+{
+    "_id" : "tabela_exemplo-marketplace",
+    "unidade_negocio" : "tabela_exemplo-marketplace",
+    "fonte" : "marketplace",
+    "projeto" : "vvdatalab-ingestion-azure",
+    "descricao" : "Ingestao de dados tabela tabela_exemplo do ADPRD(Admin)",
+    "origem" : {
+        "configuracao_servidor" : {
+            "tipo" : "jdbc",
+            "nome" : "oracle",
+            "sistema" : "adprd"
+        },
+        "tabela" : "tabela_exemplo",
+        "chave_tabela" : "image_id,sku_id, store_id",
+        "query" : "select image_id, sku_id, image_tp_id, name, path, url, main, image_id_seq, status, create_dt, store_id, position, flg_resized, external from ac_admin.ecad_image where to_date(cretate_dt) >= to_date('%s', 'yyyy-mm-dd') and to_date(cretate_dt) <= to_date('%s', 'yyyy-mm-dd')"
+    },
+    "destino" : {
+        "configuracao_servidor" : {
+            "tipo" : "kafkaTo",
+            "nome" : "datalake",
+            "topico" : "vvdatalab-uploadazure-adprd-landing",
+            "client_id" : "azure.uploadazure.adprd.001",
+            "group_id" : "azure.uploadazure.adprd.001"
+        },
+        "configuracao_particao" : [ 
+            {
+                "de" : {
+                    "nome_coluna" : "conteudo.cretate_dt",
+                    "tipo" : "timestamp"
+                },
+                "para" : {
+                    "year_partition" : "yyyy",
+                    "month_partition" : "MM",
+                    "day_partition" : "dd"
+                }
+            }
+        ],
+        "modo_gravacao" : "append"
+    },
+    "transformacao" : {
+        "tipo" : "batch",
+        "nome" : "assinatura-azure"
+    }
+}
+    
+    
+      Expandir (44 linhas)
+      Recolher
+    
+  
+  
+Documento Mongo modo Append
+
+
+
+{
+    "_id" : "tabela_teste-marketplace",
+    "unidade_negocio" : "tabela_teste-marketplace",
+    "fonte" : "marketplace",
+    "projeto" : "vvdatalab-ingestion-azure",
+    "descricao" : "Ingestao de dados tabela tabela_teste do ADPRD(Admin)",
+    "origem" : {
+        "configuracao_servidor" : {
+            "tipo" : "jdbc",
+            "nome" : "oracle",
+            "sistema" : "adprd"
+        },
+        "tabela" : "tabela_teste",
+        "chave_tabela" : "id2, id2, id3",
+        "query" : "select id, id_father, category_name, id_store from ac_admin.tabela_teste"
+    },
+    "destino" : {
+        "configuracao_servidor" : {
+            "tipo" : "kafkaTo",
+            "nome" : "datalake",
+            "topico" : "vvdatalab-uploadazure-adprd-landing",
+            "client_id" : "azure.uploadazure.proxy.001",
+            "group_id" : "azure.uploadazure.proxy.001"
+        },
+        "configuracao_particao" : [],
+        "modo_gravacao" : "overwrite"
+    },
+    "transformacao" : {
+        "tipo" : "batch",
+        "nome" : "assinatura-azure"
+    }
+}
+    
+    
+      Expandir (32 linhas)
+      Recolher
+    
+  
+  
+Documento Mongo modo Overwrite

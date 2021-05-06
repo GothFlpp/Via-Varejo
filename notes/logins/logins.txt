@@ -1,0 +1,19 @@
+Oracle
+
+ora_adprd.dc.nova:1521/ADPRD
+SRVDATA
+b1gd4t###drc2018
+
+
+Edge04 - onpremise
+
+hnodeedge04.prd.bigdata.dc.nova
+dcnova/1qaz@WSX
+22
+
+comando de teste de conexão
+telnet ora_adprd.dc.nova 1521
+
+sql server
+user/senha dos 4 bancos sql_server
+svc_bigdata/+GBo=gmhad%7UYqvLQ4l

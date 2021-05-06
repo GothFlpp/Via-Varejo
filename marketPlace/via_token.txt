@@ -1,0 +1,18 @@
+via_token:
+TOKEN="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"
+
+cookiecutter https://$TOKEN@github.com/viavarejo-internal/ml_template.git
+
+
+openfortivpn acessoremoto.viavarejo.com.br:443 --username=felippe.bacchi-ext@viavarejo.com.br --password --trusted-cert d217e6f9a27c83d00ededdfa9711d8715b9c7228ecd3b16204cb2e8ba39afb0b
+
+
+
+--trusted-cert d217e6f9a27c83d00ededdfa9711d8715b9c7228ecd3b16204cb2e8ba39afb0b
+
+
+host = acessoremoto.viavarejo.com.br
+port = 443
+username = felippe.bacchi-ext@viavarejo.com.br
+password = Gmqq@2209
+trusted-cert = d217e6f9a27c83d00ededdfa9711d8715b9c7228ecd3b16204cb2e8ba39afb0b
