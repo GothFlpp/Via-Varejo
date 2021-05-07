@@ -17,3 +17,11 @@ telnet ora_adprd.dc.nova 1521
 sql server
 user/senha dos 4 bancos sql_server
 svc_bigdata/+GBo=gmhad%7UYqvLQ4l
+
+dbutils.secrets.get('kv-clientes-seller-prd', 'vvprdstgdatalake-accountkey1') = p4iPN0I0EsYWOSi3AXBKwP19Blf7ZnnKhMjxxfVooELwWkP+Q5ni9s38Q3/AcsauEaDzLd42m9/TysEXQfMrfw==
+
+dbutils.secrets.get('kv-clientes-seller-prd', 'dlprdstglanding-accountkey1') = nPHsVSOvC5g1D50Dnn5U6VesD9WD32uKDIcMqwqlVPrQI4gbTE3tD0SRQ2Y6gju7yNvNH2y1Al5Ea1+xWqeOzw==
+
+dbutils.secrets.get('kv-bigdata-prd', 'sqldw-dlprdsqldw-user') = svc_databricks
+
+dbutils.secrets.get('kv-bigdata-prd', 'sqldw-dlprdsqldw-password-new') = OHvqCErbkCsdi3RYuyDV
