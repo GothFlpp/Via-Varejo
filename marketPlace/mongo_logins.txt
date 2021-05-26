@@ -1,0 +1,10 @@
+mp-compra
+mongodb://svc_mp-compras:bqMrJU5FlAgNC2dcruLo@mp-compras-mongo-prd001.dc.nova:27017,mp-compras-mongo-prd002.dc.nova:27017,mp-compras-mongo-prd003.dc.nova:27017,mp-compras-mongo-prd004.dc.nova:27017/mp-compras?replicaSet=rsMpComprasPRD&readPreference=primary&connectTimeoutMS=10000&authSource=mp-compras&authMechanism=SCRAM-SHA-1&3t.uriVersion=3&3t.connection.name=PRD+-+Compras&3t.databases=mp-compras&3t.alwaysShowAuthDB=true&3t.alwaysShowDBFromUserRole=true
+
+
+
+mp_dinh
+mongodb://username:password@mp-dinh-db-p01.dc.nova:27017,mp-dinh-db-p02.dc.nova:27017,mp-dinh-db-p03.dc.nova:27017,mp-dinh-db-p04.dc.nova:27017/mp-dinheiro.transacoes?replicaSet=mongodb-dinh-prd&authSource=admin&readPreference=secondary
+
+user = svc_bigdata
+pass = +GBo=gmhad%7UYqvLQ4l
