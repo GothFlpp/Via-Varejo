@@ -11,6 +11,8 @@ hnodeedge04.prd.bigdata.dc.nova
 dcnova/1qaz@WSX
 22
 
+ssh hnodeedge04.prd.bigdata.dc.nova@dcnova
+
 comando de teste de conexão
 telnet ora_adprd.dc.nova 1521
 
